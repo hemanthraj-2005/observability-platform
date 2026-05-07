@@ -40,7 +40,7 @@ jobs:
             "GRAFANA_ADMIN_PASSWORD=${{ secrets.GRAFANA_ADMIN_PASSWORD }}" \
             > .env.production
           scp -i ~/.ssh/deploy_key .env.production "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}:/opt/observability-platform/.env"
-          ssh -i ~/.ssh/deploy_key "${{ secrets.EC2_USER }}@${{ secrets.EC_HOST }}" "chmod 600 /opt/observability-platform/.env"
+          ssh -i ~/.ssh/deploy_key "${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }}" "chmod 600 /opt/observability-platform/.env"
 
       - name: Deploy stack
         run: |
