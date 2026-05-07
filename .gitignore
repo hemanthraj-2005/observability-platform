@@ -1,0 +1,13 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+.env
+*.tfvars
+*.tfstate
+*.tfstate.*
+.terraform/
+.DS_Store
+*.log
+data/
+tmp/
