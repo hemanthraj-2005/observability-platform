@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">DevOps Observability Platform Architecture</title>
+  <desc id="desc">Architecture diagram showing Flask, Prometheus, Node Exporter, Loki, Promtail, Grafana, GitHub Actions, Terraform, and AWS EC2 deployment flow.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .section { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 18; }
+      .node { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; rx: 14; }
+      .store { fill: #f0fdf4; stroke: #16a34a; stroke-width: 2; rx: 14; }
+      .deploy { fill: #fff7ed; stroke: #ea580c; stroke-width: 2; rx: 14; }
+      .title { font: 700 34px Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 500 18px Arial, sans-serif; fill: #475569; }
+      .label { font: 700 18px Arial, sans-serif; fill: #0f172a; }
+      .small { font: 500 14px Arial, sans-serif; fill: #475569; }
+      .line { stroke: #2563eb; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .muted-line { stroke: #64748b; stroke-width: 2.5; fill: none; stroke-dasharray: 8 7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1400" height="820"/>
+  <text x="70" y="64" class="title">DevOps Observability Platform</text>
+  <text x="70" y="98" class="subtitle">Containerized Flask app monitored with Prometheus, Loki, Promtail, Node Exporter, and Grafana, deployed to AWS EC2 with Terraform and GitHub Actions.</text>
+
+  <rect x="50" y="135" width="850" height="600" class="section"/>
+  <text x="80" y="178" class="label">Runtime Observability Stack</text>
+  <text x="80" y="204" class="small">Docker Compose services running locally or on EC2</text>
+
+  <rect x="105" y="270" width="205" height="100" class="node"/>
+  <text x="134" y="310" class="label">Flask App</text>
+  <text x="134" y="336" class="small">/metrics, /health, /error</text>
+
+  <rect x="405" y="230" width="220" height="105" class="store"/>
+  <text x="452" y="272" class="label">Prometheus</text>
+  <text x="434" y="298" class="small">Scrapes app + host metrics</text>
+
+  <rect x="405" y="410" width="220" height="105" class="store"/>
+  <text x="493" y="452" class="label">Loki</text>
+  <text x="447" y="478" class="small">Stores Docker logs</text>
+
+  <rect x="105" y="455" width="205" height="100" class="node"/>
+  <text x="144" y="495" class="label">Promtail</text>
+  <text x="134" y="521" class="small">Tails Docker JSON logs</text>
+
+  <rect x="105" y="600" width="205" height="90" class="node"/>
+  <text x="130" y="638" class="label">Node Exporter</text>
+  <text x="128" y="664" class="small">CPU and memory metrics</text>
+
+  <rect x="700" y="315" width="155" height="145" class="store"/>
+  <text x="742" y="372" class="label">Grafana</text>
+  <text x="728" y="398" class="small">Dashboards</text>
+  <text x="739" y="422" class="small">Alerts</text>
+
+  <path class="line" d="M310 300 C345 288 370 282 405 282"/>
+  <text x="322" y="260" class="small">metrics</text>
+
+  <path class="line" d="M310 505 C345 488 370 470 405 462"/>
+  <text x="320" y="470" class="small">logs</text>
+
+  <path class="line" d="M310 640 C348 630 372 580 405 510"/>
+  <text x="318" y="612" class="small">host metrics</text>
+
+  <path class="line" d="M625 282 C670 300 688 335 700 365"/>
+  <path class="line" d="M625 462 C672 448 692 420 700 395"/>
+
+  <rect x="955" y="135" width="395" height="600" class="section"/>
+  <text x="985" y="178" class="label">Cloud Delivery Flow</text>
+  <text x="985" y="204" class="small">Automation used to provision and deploy the stack</text>
+
+  <rect x="1015" y="255" width="270" height="95" class="deploy"/>
+  <text x="1065" y="295" class="label">GitHub Actions</text>
+  <text x="1048" y="321" class="small">CI, Terraform, and CD workflows</text>
+
+  <rect x="1015" y="420" width="270" height="95" class="deploy"/>
+  <text x="1097" y="460" class="label">Terraform</text>
+  <text x="1049" y="486" class="small">EC2, security group, outputs</text>
+
+  <rect x="1015" y="585" width="270" height="95" class="deploy"/>
+  <text x="1108" y="625" class="label">AWS EC2</text>
+  <text x="1050" y="651" class="small">Docker Compose production host</text>
+
+  <path class="muted-line" d="M1150 350 L1150 420"/>
+  <path class="muted-line" d="M1150 515 L1150 585"/>
+  <path class="muted-line" d="M1015 635 C960 635 930 635 900 635"/>
+  <text x="910" y="615" class="small">runs stack</text>
+</svg>
