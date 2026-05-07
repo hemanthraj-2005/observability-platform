@@ -286,7 +286,3 @@ Flask access/error activity:
 ```logql
 {job="docker"} |= "flask-app"
 ```
-
-## Interview Summary
-
-Built a containerized observability platform with Flask, Prometheus, Grafana, Loki, Promtail, and Node Exporter to monitor application metrics, infrastructure usage, and centralized Docker logs. Implemented custom Prometheus metrics, Grafana dashboards, alerting, Terraform-based AWS EC2 provisioning, and GitHub Actions CI/CD for validation and deployment.
